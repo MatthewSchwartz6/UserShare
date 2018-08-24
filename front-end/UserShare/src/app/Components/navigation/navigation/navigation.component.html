@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/feed" routerLinkActive="active" (click)="setCurrentPage('/feed')">UserShare</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/friends" routerLinkActive="active" (click)="setCurrentPage('/friends')">Friends <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/subscriptions" routerLinkActive="active" (click)="setCurrentPage('/subscriptions')">Subscriptions <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/likes" routerLinkActive="active" (click)="setCurrentPage('/likes')">Likes <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item ">
+                <form class="form-inline my-2 my-lg-0">
+                    <input #searchUsers class="form-control mr-sm-2" type="search" id="search-users" (keyup)="initSearch(searchUsers.value)" placeholder="Search" aria-label="Search">
+                  </form>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-link" routerLink="/login" (click)="setCurrentPage('/login')">Log Out <span class="sr-only">(current)</span></a>
+          </li>
+            
+    </ul>
+  </div>
+</nav>

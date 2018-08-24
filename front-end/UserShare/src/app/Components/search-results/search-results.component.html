@@ -1,0 +1,7 @@
+  <div *ngFor="let user of this.users$ | async">
+    <div class="row">
+      <div class="col">
+          <a href="{{'/profile/' + user.userGuid}}">{{user.profileName}}</a>
+      </div>
+    </div>
+  </div>

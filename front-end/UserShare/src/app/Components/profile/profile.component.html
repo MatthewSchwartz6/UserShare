@@ -1,0 +1,19 @@
+<div *ngIf="this.userClient">
+  
+  <div class="row">
+    <div class="col">
+      <p class="text-right">{{this.userClient.user.profileName}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div *ngIf="this.canAddAsFriend">
+
+          <button class="btn btn-success" (click)="addFriend()">Add Friend</button>
+        
+      </div>
+    </div>
+  </div>
+  <br>
+  <app-post [profileClient]="this.userClient"></app-post>
+</div>

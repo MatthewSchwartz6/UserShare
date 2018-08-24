@@ -1,0 +1,29 @@
+<div *ngIf="this.client">
+    <div *ngIf="!this.profileClient">
+        <app-make-post [user]="this.client.user" (posted)="onPosted($event)"></app-make-post>
+    </div>
+
+    <div *ngFor="let post of this.client.posts" style="border-style:double; border-color:black;" >
+        <div class="row">
+            <div class="col-md-12">
+                <h2 >{{post.creationDate}}</h2>
+            </div>
+        </div>
+        <div class="row-fluid"  >
+            <span class="span12">
+                {{post.content}}
+            </span>
+        <div>
+        <br/>
+        <div class="row-fluid">
+            <div class="col-lg-12">
+                <span> <b>submitted by </b> </span>  
+                <a href={{post.postUrl}}> <b>{{ post.posterName }}</b></a>      
+            </div>
+        </div>
+        <br/>
+        <br/>
+
+        <app-postcomments [postId]=post.postGuid [userId]=this.currentUser.userGuid [commenter]=this.currentUser.profileName></app-postcomments>
+    </div>
+</div>

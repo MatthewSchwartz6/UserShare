@@ -1,0 +1,97 @@
+<h1> Sign Up</h1>
+<p class="warning">{{this.passwordsNotMatched ? "Passwords do not match." : ""}}</p>
+<p class="warning">{{this.userAlreadyExists ? "User already exists. " : "" }}</p>
+<form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+  <div class="form-group row">
+    <label id="lblProfileName" for="inputProfileName" class="col-sm-2 col-form-label">Profile Name</label>
+    <div class="col-sm-10">
+      <input type="text" id="inputProfileName" name="inputProfileName" class="form-control" placeholder="" [(ngModel)]="this.user.profileName"/>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label id="lblPassword" for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="text" id="inputPassword" name="inputPassword" class="form-control" placeholder="" [(ngModel)]="this.user.password"/>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label id="lblReenterPassword" for="inputReenterPassword" class="col-sm-2 col-form-label">Reenter Password</label>
+    <div class="col-sm-10">
+      <input type="text" id="inputReenterPassword" name="inputReenterPassword" class="form-control" placeholder="" [(ngModel)]="this.reenteredPassword"/>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label id="lblFName" for="inputFName" class="col-sm-2 col-form-label">First name</label>
+    <div class="col-sm-10">
+      <input type="text" id="inputFName" name="inputFName" class="form-control" placeholder="Enter first name" [(ngModel)]="this.user.firstName"/>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label id="lblLName" for="inputLName" class="col-sm-2 col-form-label">Last name</label>
+    <div class="col-sm-10">
+      <input type="text" id="inputLName" name="inputLName" class="form-control" placeholder="" [(ngModel)]="this.user.lastName"/>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label id="lblEmail" for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="text" id="inputEmail" name="inputEmail" class="form-control" placeholder="" [(ngModel)]="this.user.emailAddress"/>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label id="lblAddress" for="inputAddress" class="col-sm-2 col-form-label">Address</label>
+    <div class="col-sm-10">
+      <input type="text" id="inputAddress" name="inputAddress" class="form-control" placeholder="" [(ngModel)]="this.user.streetAddress"/>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label id="lblCity" for="inputCity" class="col-sm-2 col-form-label">City</label>
+    <div class="col-sm-10">
+      <input type="text" id="inputCity" name="inputCity" class="form-control" placeholder="" [(ngModel)]="this.user.city"/>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label id="lblState" for="inputState" class="col-sm-2 col-form-label">State/Province</label>
+    <div class="col-sm-10">
+      <input type="text" id="inputState" name="inputState" class="form-control" placeholder="" [(ngModel)]="this.user.stateProvidence"/>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label id="lblCountry" for="inputCountry" class="col-sm-2 col-form-label">Country</label>
+    <div class="col-sm-10">
+      <input type="text" id="inputCountry" name="inputCountry" class="form-control" placeholder="" [(ngModel)]="this.user.country"/>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label id="lblZIP" for="inputZIP" class="col-sm-2 col-form-label">ZIP</label>
+    <div class="col-sm-10">
+      <input type="text" id="inputZIP" name="inputZIP" class="form-control" placeholder="" [(ngModel)]="this.user.zip"/>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label id="lblPhone" for="inputPhone" class="col-sm-2 col-form-label">Phone no.</label>
+    <div class="col-sm-10">
+      <input type="text" id="inputPhone" name="inputPhone" class="form-control" placeholder="" [(ngModel)]="this.user.phone"/>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label id="lblAge" for="inputAge" class="col-sm-2 col-form-label">Age</label>
+    <div class="col-sm-10">
+      <input type="text" id="inputAge" name="inputAge" class="form-control" placeholder="" [(ngModel)]="this.user.age"/>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success">Sign Up</button>
+</form>

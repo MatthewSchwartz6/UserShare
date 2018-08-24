@@ -1,0 +1,12 @@
+
+<form (ngSubmit)="onSubmit()" #postForm="ngForm">
+  <div class="form-group">
+    <textarea type="text" class="form-control" id="postContent"
+      required [(ngModel)]="this.post.content" name="postContent" placeholder="Post something"
+      #postContent="ngModel" maxlength="5000"></textarea>
+      <!-- <div [hidden]="postContent.valid || postContent.pristine" class="alert alert-danger">
+        Content is required
+      </div> -->
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="!postForm.form.valid">Submit</button>
+</form>

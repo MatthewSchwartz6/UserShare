@@ -1,0 +1,23 @@
+<h1>Login</h1>
+<p id="invalidMSG" class="warning">{{this.loginError ? "Invalid username or password" : ""}}</p>
+<form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+  <div class="form-group">
+    <label for="profileName">Username: </label>
+    <input type="text" class="form-control" id="profileName"
+      required [(ngModel)]="this.user.profileName" name="profileName"
+      #profileName="ngModel"/>
+      <!-- <div [hidden]="postContent.valid || postContent.pristine" class="alert alert-danger">
+        Content is required
+      </div> -->
+      <label for="password">Password: </label>
+      <input type="text" class="form-control" id="password"
+      required [(ngModel)]="this.user.password" name="password"
+      #password="ngModel"/>
+      <!-- <div [hidden]="postContent.valid || postContent.pristine" class="alert alert-danger">
+        Content is required
+      </div> -->
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Sign In</button>
+  &nbsp;
+  <a routerLink="/signup" routerLinkActive="active">Sign Up</a>
+</form>

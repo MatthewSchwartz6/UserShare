@@ -1,0 +1,14 @@
+<app-add-comment [postId]=postId [userId]=userId [commenter]=commenter (commentOuput)="onCommented($event)"></app-add-comment>
+<br>
+<div style="padding-left: 20px">
+    <h6>Comments:</h6>
+    <div *ngFor="let comment of comments" >
+        
+        <div class="row">
+            <div class ="col-2">{{comment.commenter}} : </div>
+            <div class ="col-10">{{comment.content}}</div>
+        </div>
+        <div >{{comment.commentTime}}</div>
+        <br>
+    </div>
+</div>
