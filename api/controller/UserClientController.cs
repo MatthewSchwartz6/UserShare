@@ -107,8 +107,11 @@ namespace app.controller
             if (userRepo.Add(user))
             {
                 var userFromDb = userRepo.GetSingle("profileName",member.name);
-
-                if (userClientRepo.StorePassword(member.password,member.name, userFromDb.userGuid.ToString()))
+                string userGuid = userFromDb.userGuid.ToString();
+                string profileUrl = "/profile/" + userGuid;
+                bool hasAddedProfileUrl = userRepo.Update("profileUrl",profileUrl,"userGuid",userGuid);
+                bool hasAddedPassword = userClientRepo.StorePassword(member.password,member.name, userGuid);
+                if (hasAddedPassword && hasAddedProfileUrl)
                 {
                     response.Add("response","User created successfully.");
                     return Ok(response);

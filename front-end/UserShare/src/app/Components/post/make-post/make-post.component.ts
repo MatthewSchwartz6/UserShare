@@ -24,6 +24,7 @@ export class MakePostComponent {
     this.post.userGuid = this.user.userGuid;
     this.post.posterName = this.user.profileName;
     this.post.postTitle = 'Rando title';
+    this.post.postUrl = this.user.profileUrl
     this.posted.emit(this.post);
   }
 }

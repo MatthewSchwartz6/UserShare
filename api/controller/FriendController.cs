@@ -44,11 +44,13 @@ namespace app.controller
             var friends = friendRepo.GetAllFilteredByGuid("userGUID",id);
             var userRepo = new UserRepository();
             List<User> friendUsers = new List<User>();
-            
-            foreach (var friend in friends)
+            User friendDetails;
+            foreach (Friend friend in friends)
             {
-                var friendDetails = userRepo.GetSingle("userGuid",friend.friendGUID.ToString());
-                friendUsers.Add(friendDetails);                
+                friendDetails = null;
+                friendDetails = userRepo.GetSingle("userGuid",friend.friendGUID.ToString());
+                friendUsers.Add(friendDetails); 
+                             
             }
             if (friendUsers != null)
                 return Ok(friendUsers);

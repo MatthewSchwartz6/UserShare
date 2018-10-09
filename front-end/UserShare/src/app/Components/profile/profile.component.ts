@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { Friend } from '../../Model/Friend';
 import { FriendService } from '../../Services/friend.service';
 import { Store } from '@ngxs/store';
-
+import {AmericanDateUtils} from '../../Shared/DateUtils';
 
 @Component({
   selector: 'app-profile',
@@ -41,7 +41,12 @@ export class ProfileComponent implements OnInit {
   }
   getUserAndPosts(): void {
     this.userService.getUser(this.profileId).subscribe(user => this.userClient.user = user);
-    this.postService.getSingleUserPosts(this.profileId).subscribe(posts => this.userClient.posts = posts);
+    this.postService.getSingleUserPosts(this.profileId).subscribe(posts => {
+      posts.forEach((post) => {
+        post.creationDate = AmericanDateUtils.formatDate(post.creationDate);
+      });
+      this.userClient.posts = posts
+    });
     this.friendService.getFriends(this.userId).subscribe((friends: Friend[]) => {
       this.userClient.friends = friends
       this.userClient.friends.forEach((friend) => {

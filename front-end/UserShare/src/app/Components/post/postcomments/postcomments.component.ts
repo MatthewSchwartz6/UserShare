@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {PostcommentsService} from '../../../Services/postcomments.service';
 import {Comment} from '../../../Model/Comment';
-
+import {AmericanDateUtils} from '../../../Shared/DateUtils';
 @Component({
   selector: 'app-postcomments',
   templateUrl: './postcomments.component.html',
@@ -21,10 +21,18 @@ export class PostcommentsComponent implements OnInit {
   }
   getComments(): void {
     this.postCommentsService.getPostComments(this.postId)
-    .subscribe(c => this.comments = c);
+    .subscribe((comm: Comment[]) => {
+      comm.forEach((comment)=>{
+        comment.commentTime = AmericanDateUtils.formatDate(comment.commentTime);
+      });
+      this.comments = comm;
+    });
   }
   onCommented(comment: Comment): void {
     this.postCommentsService.addComment(comment)
-    .subscribe(c => this.comments.push(c));
+    .subscribe((comment) => {
+      comment.commentTime = AmericanDateUtils.formatDate(comment.commentTime);
+      this.comments.push(comment);
+    });
   }
 }

@@ -1,7 +1,7 @@
 <div *ngFor="let friend of friends$ | async">
   <div class="row">
     <div>
-      {{friend.profileName}}
+      <a href={{friend.profileUrl}}>{{friend.profileName}}</a>
     </div>
   </div>
 </div>

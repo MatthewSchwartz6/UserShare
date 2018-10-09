@@ -6,7 +6,7 @@ import {PostService} from '../../Services/post.service';
 import { UserService } from '../../Services/user.service';
 import { Store } from '@ngxs/store';
 import { UserClientService } from '../../Services/user-client.service';
-
+import {AmericanDateUtils} from '../../Shared/DateUtils';
 
 @Component({
   selector: 'app-post',
@@ -27,9 +27,7 @@ export class PostComponent implements OnInit {
     if(this.profileClient)
     {
       this.client = this.profileClient;
-      setTimeout(() => {
-        this.addPostUrl();
-      }, 100);
+      setTimeout(() => {}, 100);
     }
     else
     {
@@ -40,21 +38,24 @@ export class PostComponent implements OnInit {
   getPosts(): void {
      this.userClientService.getUserClient()
       .subscribe((uc: UserClient) => {
-        this.client = uc;   
-        this.addPostUrl();    
+        this.client = uc;  
+        this.formatDates();  
       });
+
    }
    getUserName(): string {
      return this.client.user.profileName;
    }
    onPosted(post: Post): void {
       this.postService.addPost(post)
-      .subscribe(p => this.client.posts.push(p));
+      .subscribe((p: Post) => {
+        p.creationDate = AmericanDateUtils.formatDate(p.creationDate);
+        this.client.posts.push(p);
+      });
    }
-   addPostUrl(): void {
-      for (var i = 0; i < this.client.posts.length; i++)
-      {
-        this.client.posts[i].postUrl = `/profile/${this.client.posts[i].userGuid}`;
-      }
-    }
+   formatDates(): void {
+     this.client.posts.forEach((p,idx)=>{
+       p.creationDate = AmericanDateUtils.formatDate(p.creationDate) ;
+     });
+   }
 }

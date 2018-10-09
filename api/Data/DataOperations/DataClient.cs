@@ -28,10 +28,10 @@ namespace app.Data.DataOperations
         }
         public T GetSingle(string columnName, string columnValue)
         {
-            dataOperation.AddFilterToWhereClause(columnName,columnValue);
-            dataOperation.ConstructSelectAllStatement(_table);
-            
-            return dataOperation.Get().SingleOrDefault();
+            DataOperation<T> dataOp = new DataOperation<T>();
+            dataOp.AddFilterToWhereClause(columnName,columnValue);
+            dataOp.ConstructSelectAllStatement(_table);
+            return dataOp.Get().SingleOrDefault();
         }
         public List<T> GetMultiple(List<string> columns)
         {

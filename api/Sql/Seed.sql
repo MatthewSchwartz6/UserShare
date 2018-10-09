@@ -2,7 +2,7 @@ use UserShare
 GO
 
 insert into [User] (userGuid,firstName,lastName,profileName)
-VALUES (NEWID(),'Matt','Schwartz','matfueX5000')
+VALUES (NEWID(),'Matt','Schwartz','mschwartz')
 insert into [User] (userGuid,firstName,lastName,profileName)
 VALUES (NEWID(),'John','Doe','John Doe')
 
@@ -36,7 +36,7 @@ values(NEWID(),@firstname,'some demo content','some demo post title',GETDATE(),G
 select @postid=postGuid from Post where postId=1
 
 insert into Comment(content,commentDate,commentTime,userGUID,commentUrl,commentGUID,postGuid,commenter)
-values ('WHOAH THAT WAS SO COOL DUDE',GETDATE(),GETDATE(),
+values ('First Comment',GETDATE(),GETDATE(),
 @id,'EXAMPLE.COM',NEWID(),@postid,@firstname)
 
 select @commentid=commentGuid from Comment where commentId=1
@@ -55,7 +55,7 @@ insert into Subscription(subscriptionGUID,creationDate,followedGUID, followerGUI
 values (NEWID(), GETDATE(), @friendid, @id)
 
 
-insert into Membership(memberGUID,pass,salt,userGUID,name) values (NEWID(),@h,@salt,@id,'matfueX5000')
+insert into Membership(memberGUID,pass,salt,userGUID,name) values (NEWID(),@h,@salt,@id,'mschwartz')
 
 GO
 use UserShare 
@@ -70,5 +70,4 @@ select * from Friend
 select * from [Message]
 select * from Subscription
 select * from Conversation
-
 

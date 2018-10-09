@@ -27,7 +27,7 @@ namespace app.repository
                 var posts = new PostRepository().GetAllFilteredByGuid("userGuid",f.friendGUID.ToString());
                 userClient.posts.AddRange(posts);
             }
-            userClient.posts = userClient.posts.OrderBy(o => o.creationDate).ToList();
+            userClient.posts = userClient.posts.OrderByDescending(o => o.creationDate).ToList();
             return userClient;
         }
         public List<string> GetAllProfileNames()
