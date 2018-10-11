@@ -1,15 +1,10 @@
 use UserShare
-GO
+
 
 insert into [User] (userGuid,firstName,lastName,profileName)
 VALUES (NEWID(),'Matt','Schwartz','mschwartz')
 insert into [User] (userGuid,firstName,lastName,profileName)
 VALUES (NEWID(),'John','Doe','John Doe')
-
-
-
-use UserShare
-GO
 
 
 declare @id UNIQUEIDENTIFIER
@@ -58,7 +53,6 @@ values (NEWID(), GETDATE(), @friendid, @id)
 insert into Membership(memberGUID,pass,salt,userGUID,name) values (NEWID(),@h,@salt,@id,'mschwartz')
 
 GO
-use UserShare 
 
 
 select * from [User]
@@ -71,3 +65,4 @@ select * from [Message]
 select * from Subscription
 select * from Conversation
 
+GO

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -21,7 +22,7 @@ namespace app.controller
             this.likeRepo.SetFields("CommentLike","likeGUID");
             this.baseRepo.SetFields("CommentLike","likeGUID");
         }
-
+        [Authorize]
         [HttpPatch]
         [Route("PartiallyUpdate[controller]")]
         public IActionResult PartiallyUpdateLike(string id,[FromBody]JsonPatchDocument<CommentLike> jsonPatch)

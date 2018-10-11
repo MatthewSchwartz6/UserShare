@@ -12668,11 +12668,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/matt/Dropbox/user_share/api/app.csproj",
+      "projectUniqueName": "/home/matt/Repositories/UserShare/api/app.csproj",
       "projectName": "app",
-      "projectPath": "/home/matt/Dropbox/user_share/api/app.csproj",
+      "projectPath": "/home/matt/Repositories/UserShare/api/app.csproj",
       "packagesPath": "/home/matt/.nuget/packages/",
-      "outputPath": "/home/matt/Dropbox/user_share/api/obj/",
+      "outputPath": "/home/matt/Repositories/UserShare/api/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"

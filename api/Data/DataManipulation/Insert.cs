@@ -13,7 +13,6 @@ namespace app.Data.DataManipulation
             var columns = new List<string>();
             var values = new List<string>();
             Guid dummy = new Guid();
-            string propString;
             int propInt;
             foreach(var property in properties)
             {

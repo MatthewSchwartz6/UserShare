@@ -11,7 +11,7 @@ namespace app.Data.DataOperations
     public enum DataOperations  {Select ,Update,Insert,Delete}
     public  class DataOperation<T>
     {
-        private  string connectionString = "Data Source=127.0.0.1,1433;Initial Catalog=UserShare;User Id=sa;Password=;";
+        private  string connectionString = "REDACTED";
         
         public string TableName {get;set;}
         public string Sql {get;set;}

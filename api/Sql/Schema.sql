@@ -105,4 +105,5 @@ CREATE TABLE Membership
     userGUID UNIQUEIDENTIFIER NOT NULL,
     name VARCHAR(max)
 )
-
+GO
+SELECT * FROM [User]

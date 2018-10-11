@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -21,6 +22,7 @@ namespace app.controller
             this.friendRepo.SetFields("Friend","friendGUID");
             this.baseRepo.SetFields("Friend","friendGUID");
         }
+        [Authorize]
         [HttpGet]
         [Route("/api/GetFriends")]
         public IActionResult GetFriends(string id)
@@ -32,7 +34,7 @@ namespace app.controller
             var friends = friendRepo.GetAllFilteredByGuid("userGUID",id);
             return Ok(friends);
         }
-
+        [Authorize]
         [HttpGet]
         [Route("/api/GetFriendDetails")]
         public IActionResult GetFriendDetails(string id)

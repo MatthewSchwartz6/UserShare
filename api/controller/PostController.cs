@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -22,6 +23,7 @@ namespace app.controller
             this.postRepo.SetFields("Post","postGuid");
             this.baseRepo.SetFields("Post","postGuid");
         }
+        [Authorize]
         [HttpGet]
         [Route("/api/GetSingleUserPosts")]
         public IActionResult GetSingleUserPosts(string id)
@@ -40,7 +42,7 @@ namespace app.controller
                 return Ok("No posts where found.");
             }
         }
-
+        [Authorize]
         [HttpPatch]
         [Route("PartiallyUpdate[controller]")]
         public IActionResult PartiallyUpdatePost(string id,[FromBody]JsonPatchDocument<Post> jsonPatch)

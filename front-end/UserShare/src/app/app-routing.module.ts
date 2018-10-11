@@ -15,7 +15,7 @@ const routes: Routes = [
 { path: 'profile/:id', component: ProfileComponent,canActivate:[AuthGuard]},
 { path: 'subscriptions', component: SubscriptionsComponent, canActivate:[AuthGuard]},
 { path: 'friends', component: FriendsComponent, canActivate:[AuthGuard]},
-{path: 'login', loadChildren: 'app/Components/login/login.module#LoginModule'},
+{path: 'login', loadChildren: './Components/login/login.module#LoginModule'},
 {path: 'search-results', component: SearchResultsComponent, canActivate:[AuthGuard]},
 { path: '', redirectTo : '/login', pathMatch: 'full'}
 ];

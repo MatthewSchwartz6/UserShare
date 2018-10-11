@@ -14,7 +14,7 @@ export class CustomHttpInterceptor implements HttpInterceptor{
 
         const token = this.store.selectSnapshot(state => state.auth.token);
         const clonedRequest = request.clone({
-            headers: request.headers.set('Authorization', token ? token : '')
+            headers: request.headers.set('Authorization', 'Bearer ' + (token ? token : ''))
         });
         return next.handle(clonedRequest);
     }

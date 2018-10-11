@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -22,6 +23,7 @@ namespace app.controller
         {
             userClientRepo = new UserClientRepository();
         }
+        [Authorize]
         [HttpGet]
         public IActionResult GetUserClient(string id)
         {
@@ -32,6 +34,7 @@ namespace app.controller
             }
             return Ok(userClient);
         }
+        [Authorize]
         [HttpGet]
         [Route("/api/UserClient/PostComments")]
         public IActionResult GetPostComments(string id)
@@ -43,6 +46,7 @@ namespace app.controller
             }
             return Ok(comments);
         }
+        [AllowAnonymous]
         [HttpPost]
         [Route("/api/UserClient/CheckMembership")]
         public IActionResult CheckMembership([FromBody]Member member)
@@ -50,10 +54,9 @@ namespace app.controller
             string result = userClientRepo.Login(member.password,member.name);
             var userRepo = new UserRepository();
             var user = userRepo.GetSingle("userGuid",result);
-            //TODO: get the token somehow
-            string token = "todo: implement token validation/creation";
             if (user != null)
             {
+                string token = CustomToken.getToken(user.profileName);
                 var body = new Dictionary<string,string>{
                     {"token",token},
                     {"profileName",user.profileName},
@@ -67,6 +70,7 @@ namespace app.controller
             }
             return new StatusCodeResult(404);
         }
+        [AllowAnonymous]
         [HttpPost]
         [Route("/api/UserClient/Membership")]
         public IActionResult CreateMembership([FromBody]object obj)

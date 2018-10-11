@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -21,6 +22,7 @@ namespace app.controller
             this.messageRepo.SetFields("Message","messageGUID");
             this.baseRepo.SetFields("Message","messageGUID");
         }
+        [Authorize]
         [HttpPatch]
         [Route("PartiallyUpdate[controller]")]
         public IActionResult PartiallyUpdateMessage(string id,[FromBody]JsonPatchDocument<Message> jsonPatch)

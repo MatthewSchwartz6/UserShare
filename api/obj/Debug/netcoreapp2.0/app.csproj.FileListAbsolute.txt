@@ -53,3 +53,14 @@
 /home/matt/Dropbox/user_share/api/obj/Debug/netcoreapp2.0/app.AssemblyInfo.cs
 /home/matt/Dropbox/user_share/api/obj/Debug/netcoreapp2.0/app.dll
 /home/matt/Dropbox/user_share/api/obj/Debug/netcoreapp2.0/app.pdb
+/home/matt/Repositories/UserShare/api/bin/Debug/netcoreapp2.0/app.deps.json
+/home/matt/Repositories/UserShare/api/bin/Debug/netcoreapp2.0/app.runtimeconfig.json
+/home/matt/Repositories/UserShare/api/bin/Debug/netcoreapp2.0/app.runtimeconfig.dev.json
+/home/matt/Repositories/UserShare/api/bin/Debug/netcoreapp2.0/app.dll
+/home/matt/Repositories/UserShare/api/bin/Debug/netcoreapp2.0/app.pdb
+/home/matt/Repositories/UserShare/api/obj/Debug/netcoreapp2.0/app.csprojAssemblyReference.cache
+/home/matt/Repositories/UserShare/api/obj/Debug/netcoreapp2.0/app.csproj.CoreCompileInputs.cache
+/home/matt/Repositories/UserShare/api/obj/Debug/netcoreapp2.0/app.AssemblyInfoInputs.cache
+/home/matt/Repositories/UserShare/api/obj/Debug/netcoreapp2.0/app.AssemblyInfo.cs
+/home/matt/Repositories/UserShare/api/obj/Debug/netcoreapp2.0/app.dll
+/home/matt/Repositories/UserShare/api/obj/Debug/netcoreapp2.0/app.pdb

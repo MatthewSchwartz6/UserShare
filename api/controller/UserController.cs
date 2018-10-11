@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Reflection;
 using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -24,7 +25,7 @@ namespace app.controller
         }
         
 
-
+        [Authorize]
         [HttpGet]
         [Route("/api/GetUsers")]
         public IActionResult GetAllFromSearchQuery(string query)
@@ -43,6 +44,7 @@ namespace app.controller
             else 
                 return Ok();
         }
+        [Authorize]
         [HttpGet]
         [Route("/api/GetUser")]
         public IActionResult GetSingleUser(string id)
@@ -57,7 +59,7 @@ namespace app.controller
             else
                 return Ok("No user found.");
         }
-        
+        [Authorize]
         [HttpPatch]
         [Route("PartiallyUpdate[controller]")]
         public IActionResult PartiallyUpdateUser(string id,[FromBody]JsonPatchDocument<User> jsonPatch)
